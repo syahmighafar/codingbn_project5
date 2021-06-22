@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" href="img/apiLogo.jpg">
+    <title>Covid 19 API</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head><br><br>
+
+<style>
+    body{
+        background-color: rgba(241, 237, 237, 0.747);
+    }
+     th, td {
+    font-size: 15px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  td {
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
+}
+#covidtablelist{
+    border:2px solid black;
+}
+#covidtablelist border{
+    border:2px solid black;
+}
+
+.table-responsive{
+    padding-top: 85px;
+}
+
+#navi1{
+    background-color: black;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
+    color: white;
+    text-align: center;
+ }
+</style>
+
+
+<body>
+
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark" id="navi1">
+        <a class="navbar-brand" href="index.html">List of API</a>
+        
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span></button>
+      
+        <div class="collapse navbar-collapse" data-toggle="collapse" data-target=".navbar-collapse.show" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="weather.html">Weather App</a>
+              </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="C19 API.html">COVID Live Data <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="cat.html">Cats Pics/Facts Generator</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="quote.html">Quote Generator</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    
+
+      <div class="container-fluid">
+        <div class="row" id="covidtable">
+            <div class="col-sm-12">
+                <div class="table-responsive">
+                    <div class="container" id="covidtablelist">
+                        <h1 class="text-center mt-5">COVID 19 LIVE DATA FOR SOUTHEAST ASIAN COUNTRIES</h1>
+                        <br><br>
+                        <table class="table table-hover">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Countries</th>
+                                <th>Total Confirmed</th>
+                                <th>Total Deaths</th>
+                                <th>Total Recovered</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                
+                        <tbody>
+                            <tr id="data"></tr>
+                            <tr id="cambodia"></tr>
+                            <tr id="indonesia"></tr>
+                            <tr id="laos"></tr>
+                            <tr id="malaysia"></tr>
+                            <tr id="myanmar"></tr>
+                            <tr id="philippines"></tr>
+                            <tr id="singapore"></tr>
+                            <tr id="timor"></tr>
+                            <tr id="thailand"></tr>
+                        </tbody>
+                        </table>
+                        <br>
+                        <button onclick="refreshData()" class="btn btn-primary btn-block">
+                            Refresh Data
+                        </button><br>
+                    </div></div>
+      </div>
+
+      
+        </div>
+      </div>
+
+      <div class="footer">
+        <p class="text">2021 &copy; <strong><span>coding.bn - H4</span></strong></p>
+      </div>
+
+
+
+<br><br>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    
+        init()
+
+        function init(){
+            var url = "https://api.covid19api.com/summary"
+
+            var data = ''
+
+            $.get(url,function(data){
+                console.log(data.Countries)
+
+                data = `
+                <td>${data.Countries[24].Country}</td>
+                <td>${data.Countries[24].TotalConfirmed}</td>
+                <td>${data.Countries[24].TotalDeaths}</td>
+                <td>${data.Countries[24].TotalRecovered}</td>
+                <td>${data.Countries[24].Date}</td>
+                `
+                $("#data").html(data)
+            })
+
+            $.get(url,function(data){
+                console.log(data.Countries)
+
+                data = `
+                <td>${data.Countries[28].Country}</td>
+                <td>${data.Countries[28].TotalConfirmed}</td>
+                <td>${data.Countries[28].TotalDeaths}</td>
+                <td>${data.Countries[28].TotalRecovered}</td>
+                <td>${data.Countries[28].Date}</td>
+                `
+                $("#cambodia").html(data)
+            })
+
+            $.get(url,function(data){
+                console.log(data.Countries)
+
+                data = `
+                <td>${data.Countries[77].Country}</td>
+                <td>${data.Countries[77].TotalConfirmed}</td>
+                <td>${data.Countries[77].TotalDeaths}</td>
+                <td>${data.Countries[77].TotalRecovered}</td>
+                <td>${data.Countries[77].Date}</td>
+                `
+                $("#indonesia").html(data)
+            })
+
+            $.get(url,function(data){
+                console.log(data.Countries)
+
+                data = `
+                <td>${data.Countries[91].Country}</td>
+                <td>${data.Countries[91].TotalConfirmed}</td>
+                <td>${data.Countries[91].TotalDeaths}</td>
+                <td>${data.Countries[91].TotalRecovered}</td>
+                <td>${data.Countries[91].Date}</td>
+                `
+                $("#laos").html(data)
+            })
+
+            $.get(url,function(data){
+                console.log(data.Countries)
+
+                data = `
+                <td>${data.Countries[103].Country}</td>
+                <td>${data.Countries[103].TotalConfirmed}</td>
+                <td>${data.Countries[103].TotalDeaths}</td>
+                <td>${data.Countries[103].TotalRecovered}</td>
+                <td>${data.Countries[103].Date}</td>
+                `
+                $("#malaysia").html(data)
+            })
+
+            $.get(url,function(data){
+                console.log(data.Countries)
+
+                data = `
+                <td>${data.Countries[118].Country}</td>
+                <td>${data.Countries[118].TotalConfirmed}</td>
+                <td>${data.Countries[118].TotalDeaths}</td>
+                <td>${data.Countries[118].TotalRecovered}</td>
+                <td>${data.Countries[118].Date}</td>
+                `
+                $("#myanmar").html(data)
+            })
+
+
+            $.get(url,function(data){
+                console.log(data.Countries)
+
+                data = `
+                <td>${data.Countries[134].Country}</td>
+                <td>${data.Countries[134].TotalConfirmed}</td>
+                <td>${data.Countries[134].TotalDeaths}</td>
+                <td>${data.Countries[134].TotalRecovered}</td>
+                <td>${data.Countries[134].Date}</td>
+                `
+                $("#philippines").html(data)
+            })
+
+            $.get(url,function(data){
+                console.log(data.Countries)
+
+                data = `
+                <td>${data.Countries[153].Country}</td>
+                <td>${data.Countries[153].TotalConfirmed}</td>
+                <td>${data.Countries[153].TotalDeaths}</td>
+                <td>${data.Countries[153].TotalRecovered}</td>
+                <td>${data.Countries[153].Date}</td>
+                `
+                $("#singapore").html(data)
+            })
+
+            $.get(url,function(data){
+                console.log(data.Countries)
+
+                data = `
+                <td>${data.Countries[172].Country}</td>
+                <td>${data.Countries[172].TotalConfirmed}</td>
+                <td>${data.Countries[172].TotalDeaths}</td>
+                <td>${data.Countries[172].TotalRecovered}</td>
+                <td>${data.Countries[172].Date}</td>
+                `
+                $("#timor").html(data)
+            })
+
+            $.get(url,function(data){
+                console.log(data.Countries)
+
+                data = `
+                <td>${data.Countries[171].Country}</td>
+                <td>${data.Countries[171].TotalConfirmed}</td>
+                <td>${data.Countries[171].TotalDeaths}</td>
+                <td>${data.Countries[171].TotalRecovered}</td>
+                <td>${data.Countries[171].Date}</td>
+                `
+                $("#thailand").html(data)
+            })
+        }
+
+        function refreshData(){
+            clearData()
+            init()
+        }
+
+        function clearData(){
+            $("#data").empty()
+            $("#cambodia").empty()
+            $("#indonesia").empty()
+            $("#laos").empty()
+            $("#malaysia").empty()
+            $("#myanmar").empty()
+            $("#philippines").empty()
+            $("#singapore").empty()
+            $("#timor").empty()
+            $("#thailand").empty()
+            
+        }
+</script>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/bootstrap.min.css"/>
+
+        <link rel="icon" href="img/apiLogo.jpg">
+        <title>Cats Pics/Facts Generator</title>
+        <style>
+            img {
+                width: 30%;
+            }
+            .showcase {
+                width: 60%;
+                margin-top: 20px;
+            }
+            #navi1{
+              background-color: #5c3d02;
+            }
+            .jumbotron{
+              padding-top: 85px;
+            }
+
+            .footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #5c3d02;
+    color: white;
+    text-align: center;
+ }
+        </style>
+    </head>
+    <body class="jumbotron text-center">
+      <nav class="navbar fixed-top navbar-expand-lg navbar-dark" id="navi1">
+        <a class="navbar-brand" href="index.html">List of API</a>
+        
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span></button>
+      
+        <div class="collapse navbar-collapse" data-toggle="collapse" data-target=".navbar-collapse.show" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="weather.html">Weather App</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="C19 API.html">COVID Live Data</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="cat.html">Cats Pics/Facts Generator <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="quote.html">Quote Generator</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+
+        <h1>Random Cats Pic/Fact Generator</h1>
+        <img class="text-center my-4" src="img/cat.png"/><br/>
+        <div class="button">
+        <button class="btn btn-primary my-2 generate_btn">Generate Random Pic</button>   
+        <button data-toggle="modal" data-target="#model" class="btn btn-primary my-3 getbutton">Get Facts</button>   
+        </div>  
+            <div class="catsimgdiv"></div> 
+
+              <div class="modal" id="model" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Cats facts generator</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <form>
+                        <div class="form-group">
+                          <label for="animal_type">Animal Type</label>
+                          <input type="text" class="form-control" value="cat" id="animaltype" aria-describedby="emailHelp" disabled>
+                        </div>
+                        <div class="form-group">
+                          <label for="num_facts">Number of Facts</label>
+                          <input type="number" class="form-control" id="numfacts">
+                          <small id="emailHelp" class="form-text text-muted">MAX: 500</small>
+                        </div>
+                      </form>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <button type="button" id="generatebtn" class="btn btn-primary generatebtn" data-dismiss="modal">Generate</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            
+              <div class="list-group mx-3 my-3 facts"></div>
+
+
+              <div class="footer">
+                <p class="text">2021 &copy; <strong><span>coding.bn - H4</span></strong></p>
+              </div>
+        
+        <script src="js/scriptc.js"></script>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        
+    </body>
+</html>
